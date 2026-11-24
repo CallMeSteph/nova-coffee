@@ -40,7 +40,7 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
               <span aria-hidden="true" className="h-px w-10 bg-terracotta" />
               {pad(index + 1)} / {pad(total)}
             </p>
-            {/* Phone and desktop sizes track the column so "Acompañamientos" fits. */}
+            {/* Phone and desktop sizes track the column so long titles fit. */}
             <h2
               id={titleId}
               className="mt-8 text-display-lg wrap-break-word max-sm:text-[min(10.2vw,3rem)] lg:text-[clamp(2.25rem,3.6vw,3.5rem)]"
@@ -64,25 +64,12 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
             <li key={item.name} className="border-t border-espresso/15">
               <Reveal delay={itemIndex * 80} className="py-7 lg:py-9">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-                  <h3
-                    className={cn(
-                      "text-2xl leading-tight tracking-[-0.01em] md:text-[1.75rem]",
-                      item.provisional && "italic text-ink-muted",
-                    )}
-                  >
+                  <h3 className="text-2xl leading-tight tracking-[-0.01em] md:text-[1.75rem]">
                     {item.name}
                   </h3>
-                  {item.provisional ? (
-                    <span className="eyebrow shrink-0 text-[0.6875rem] text-roast">
-                      Provisional
-                    </span>
-                  ) : (
-                    item.price && (
-                      <span className="shrink-0 font-display text-xl tabular-nums text-roast">
-                        {item.price}
-                      </span>
-                    )
-                  )}
+                  <span className="shrink-0 font-display text-xl tabular-nums text-roast">
+                    {item.price}
+                  </span>
                 </div>
                 <p className="mt-2.5 max-w-[30rem] text-base leading-relaxed text-ink-muted">
                   {item.description}

@@ -7,7 +7,7 @@ import { menu } from "@/config/menu";
 export const metadata: Metadata = {
   title: "Carta",
   description:
-    "La carta de NOVA COFFEE: café caliente, café frío, otras bebidas y acompañamientos.",
+    "La carta de NOVA COFFEE: cafés clásicos, cafés fríos, panadería y postres. Productos y precios ficticios de un proyecto conceptual.",
 };
 
 /** Menu page — content lives in src/config/menu.ts. */

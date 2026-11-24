@@ -3,7 +3,6 @@
 import { useSyncExternalStore } from "react";
 import { FormField } from "@/components/contact/form-field";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
-import { contactTransport } from "@/lib/contact/transport";
 import { useContactForm, type ContactStatus } from "@/lib/contact/use-contact-form";
 import { maxLengths } from "@/lib/contact/validate";
 
@@ -28,20 +27,14 @@ const fields = [
 
 const statusMessages: Record<ContactStatus, string | null> = {
   idle: null,
-  invalid: "Revisa los campos señalados antes de enviar.",
-  sending: "Enviando tu mensaje…",
-  success: "Mensaje enviado. Gracias por escribirnos.",
-  error:
-    "No hemos podido enviar tu mensaje. Lo que has escrito sigue aquí: inténtalo de nuevo en unos minutos.",
-  unavailable:
-    "Tu mensaje no se ha enviado: el envío todavía no está disponible. Lo que has escrito sigue aquí.",
+  invalid: "Revisa los campos señalados.",
+  demo: "Los campos son válidos, pero esto es una demostración: tu mensaje no se ha enviado ni almacenado.",
 };
 
 const noSubscription = () => () => {};
 
 export function ContactForm() {
-  const { values, errors, status, change, blur, submit } =
-    useContactForm(contactTransport);
+  const { values, errors, status, change, blur, submit } = useContactForm();
   // Until React can handle the submit, the browser would do a native one and
   // reload the page with the message lost.
   const hydrated = useSyncExternalStore(
@@ -49,7 +42,6 @@ export function ContactForm() {
     () => true,
     () => false,
   );
-  const sending = status === "sending";
   const statusMessage = statusMessages[status];
 
   return (
@@ -58,13 +50,10 @@ export function ContactForm() {
       noValidate
       onSubmit={submit}
       aria-labelledby="contact-form-title"
-      aria-busy={sending}
     >
-      {!contactTransport && (
-        <p className="mb-12 max-w-[30rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-ink-muted">
-          Formulario en preparación: todavía no envía mensajes.
-        </p>
-      )}
+      <p className="mb-12 max-w-[30rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-ink-muted">
+        Formulario de demostración: los mensajes no se envían ni se almacenan.
+      </p>
       <noscript>
         <p className="mb-12 text-sm text-ink-muted">
           Este formulario necesita JavaScript para funcionar.
@@ -82,7 +71,6 @@ export function ContactForm() {
             value={values[field.name]}
             error={errors[field.name]}
             maxLength={maxLengths[field.name]}
-            readOnly={sending}
             onChange={(value) => change(field.name, value)}
             onBlur={() => blur(field.name)}
           />
@@ -90,14 +78,12 @@ export function ContactForm() {
       </div>
 
       <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-9">
-        {/* aria-disabled while sending keeps keyboard focus on the button. */}
         <button
           type="submit"
           disabled={!hydrated}
-          aria-disabled={sending || undefined}
-          className="group inline-flex h-13 shrink-0 cursor-pointer items-center justify-center gap-3 self-start rounded-full bg-espresso px-[min(1.75rem,8.75vw)] text-sm font-medium tracking-[0.01em] text-cream transition-[background-color,opacity] duration-(--duration-base) ease-(--ease-out-soft) hover:bg-roast disabled:cursor-default aria-disabled:cursor-progress aria-disabled:opacity-60 sm:self-center"
+          className="group inline-flex h-13 shrink-0 cursor-pointer items-center justify-center gap-3 self-start rounded-full bg-espresso px-[min(1.75rem,8.75vw)] text-sm font-medium tracking-[0.01em] text-cream transition-[background-color,opacity] duration-(--duration-base) ease-(--ease-out-soft) hover:bg-roast disabled:cursor-default sm:self-center"
         >
-          {sending ? "Enviando…" : "Enviar mensaje"}
+          Probar formulario
           <ArrowIcon className="transition-transform duration-(--duration-base) ease-(--ease-out-soft) group-hover:translate-x-1" />
         </button>
 
@@ -105,8 +91,7 @@ export function ContactForm() {
         <div role="status" aria-live="polite" className="min-h-6">
           {statusMessage && (
             <p
-              data-status={status}
-              className="max-w-[28rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-espresso data-[status=sending]:border-sand data-[status=success]:border-espresso"
+              className="max-w-[28rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-espresso"
             >
               {statusMessage}
             </p>

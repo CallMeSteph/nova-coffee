@@ -21,15 +21,15 @@ export function Hero() {
             <span className="tabular-nums text-espresso">N.º 01</span>
             <span className="hidden sm:inline"> — La portada</span>
           </span>
-          <span className="hidden md:inline">Espresso · Filtrados · Grano</span>
-          <span>Tostado en pequeños lotes</span>
+          <span className="hidden md:inline">Café · Mesa · Conversación</span>
+          <span>Una pausa sin prisa</span>
         </div>
 
         {/* Copy */}
         <div className="col-span-12 flex flex-col pt-12 sm:pt-16 lg:col-span-7 lg:pb-2 lg:pt-12">
           <p className="eyebrow flex items-center gap-4 text-roast animate-fade-up [animation-delay:80ms]">
             <span aria-hidden="true" className="h-px w-10 bg-terracotta" />
-            Café de especialidad
+            El placer de la pausa
           </p>
 
           <h1 id="hero-title" className="mt-8 text-display-xl wrap-break-word lg:mt-10">
@@ -37,15 +37,15 @@ export function Hero() {
               <SoftText>Cada ta&shy;za,</SoftText>
             </span>
             <em className="block pl-[min(0.6em,9.75vw)] text-roast animate-fade-up [animation-delay:260ms] [font-variation-settings:'SOFT'_100] lg:pl-[1.1em]">
-              <SoftText>un ori&shy;gen.</SoftText>
+              <SoftText>un ri&shy;tual.</SoftText>
             </em>
           </h1>
 
           <div className="mt-10 grid gap-10 sm:mt-14 lg:mt-auto lg:pt-10">
             <p className="max-w-[27rem] text-base leading-relaxed text-ink-muted animate-fade-up [animation-delay:380ms] md:text-lg md:leading-relaxed">
-              Seleccionamos granos de origen único y los tostamos en pequeños
-              lotes para que cada taza cuente de dónde viene. Espresso preciso,
-              filtrados limpios y una mesa donde quedarse un rato más.
+              Un aroma que llena la mesa, un sorbo sin prisa y una conversación
+              que se alarga. En NOVA COFFEE, cada taza es una invitación a
+              quedarse un rato más.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-9 gap-y-2 animate-fade-up [animation-delay:480ms]">
@@ -63,7 +63,7 @@ export function Hero() {
             aria-hidden="true"
             className="eyebrow absolute -left-[36px] top-10 hidden text-[0.6875rem] text-ink-muted [writing-mode:vertical-rl] rotate-180 xl:block"
           >
-            Molido al momento · Servido sin prisa
+            Un sorbo lento · Una mesa compartida
           </p>
 
           {/* Portrait on small screens; on desktop the height follows the
@@ -84,7 +84,7 @@ export function Hero() {
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
             <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
             <span className="font-display text-sm italic">
-              Filtrado de la mañana, luz natural.
+              Café de la mañana, luz natural.
             </span>
           </figcaption>
         </figure>

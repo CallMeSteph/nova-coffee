@@ -57,8 +57,8 @@ export function ContactHero() {
         <div className="col-span-12 mt-14 animate-fade-up [animation-delay:400ms] sm:col-span-9 sm:col-start-4 lg:col-span-4 lg:col-start-9 lg:mt-20 lg:self-end lg:pb-9">
           <span aria-hidden="true" className="mb-8 block h-px w-10 bg-terracotta" />
           <p className="max-w-[24rem] font-display text-[1.3rem] leading-snug text-espresso md:text-[1.5rem]">
-            Una pregunta, una idea o simplemente las ganas de saludar. Cuéntanos
-            lo que tengas en mente; nos gustará leerte.
+            Una pregunta, una idea o simplemente las ganas de saludar. Así
+            empiezan las conversaciones que se recuerdan.
           </p>
         </div>
       </Container>

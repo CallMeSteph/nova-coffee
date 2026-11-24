@@ -5,7 +5,7 @@ import tableImage from "@/assets/images/about-table.jpg";
 
 /**
  * Copy for /nosotros. Deliberately about how coffee is enjoyed: no claims on
- * sourcing, roasting, staff, premises or company history until confirmed.
+ * sourcing, roasting, staff, premises or history, as the brand is fictional.
  */
 export type Concept = {
   title: string;

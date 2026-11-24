@@ -2,7 +2,7 @@ import Image from "next/image";
 import pauseImage from "@/assets/images/menu-pause.jpg";
 import { Container } from "@/components/ui/container";
 import { SoftText } from "@/components/ui/soft-text";
-import { isMenuProvisional, menu } from "@/config/menu";
+import { menu, menuNotice } from "@/config/menu";
 
 /**
  * Menu opening: a headline across the full measure, then a wide photograph
@@ -19,15 +19,7 @@ export function MenuHero() {
             <span className="tabular-nums text-espresso">N.º 02</span> — Nuestra
             carta
           </span>
-          {isMenuProvisional && (
-            <span className="hidden items-center gap-3 text-roast sm:flex">
-              <span
-                aria-hidden="true"
-                className="size-1.5 rounded-full bg-terracotta"
-              />
-              Provisional
-            </span>
-          )}
+          <span className="hidden sm:inline">Café · Panadería · Postres</span>
         </div>
 
         {/* Headline */}
@@ -71,12 +63,9 @@ export function MenuHero() {
             te apetezca y tómate el tiempo que necesites.
           </p>
 
-          {isMenuProvisional && (
-            <p className="mt-8 max-w-[24rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-ink-muted animate-fade-up [animation-delay:380ms]">
-              Carta provisional: los productos son marcadores de posición y se
-              sustituirán por la oferta confirmada.
-            </p>
-          )}
+          <p className="mt-8 max-w-[24rem] border-l border-terracotta pl-5 text-sm leading-relaxed text-ink-muted animate-fade-up [animation-delay:380ms]">
+            {menuNotice}
+          </p>
 
           <nav
             aria-label="Categorías de la carta"

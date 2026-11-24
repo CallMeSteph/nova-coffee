@@ -2,10 +2,7 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SoftText } from "@/components/ui/soft-text";
 
-/**
- * Menu closing: one sentence on espresso, like the back cover.
- * No contact link yet: /contacto has no page.
- */
+/** Menu closing: one sentence on espresso, like the back cover. */
 export function MenuClosing() {
   return (
     <section aria-label="Cierre de la carta" className="bg-espresso text-cream">

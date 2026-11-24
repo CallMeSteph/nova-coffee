@@ -1,30 +1,17 @@
 /**
- * Contact channels shown on /contacto.
- *
- * PENDING CONFIGURATION: the business has not confirmed any of these yet.
- * Fill `entries` with real data only; a channel without entries is shown as
- * "Pendiente de configurar", and the page notice disappears once all have one.
+ * Facts shown on /contacto. NOVA COFFEE is a fictional brand, so there are no
+ * real channels to list: never add invented phones, emails, addresses or
+ * social profiles here.
  */
-export type ContactEntry = {
-  text: string;
-  /** mailto:, tel: or an https URL. Leave out for plain text. */
-  href?: string;
-};
-
-export type ContactChannel = {
+export type ProjectFact = {
   label: string;
-  entries: ContactEntry[];
+  text: string;
 };
 
-export const contactChannels: ContactChannel[] = [
-  { label: "Correo electrónico", entries: [] },
-  { label: "Teléfono", entries: [] },
-  { label: "WhatsApp", entries: [] },
-  { label: "Dirección", entries: [] },
-  { label: "Horario", entries: [] },
-  { label: "Redes sociales", entries: [] },
+export const projectFacts: ProjectFact[] = [
+  { label: "Marca", text: "NOVA COFFEE, una marca ficticia." },
+  { label: "Proyecto", text: "Pieza conceptual de portafolio." },
+  { label: "Creado por", text: "CallMeSteph" },
+  { label: "Local y horario", text: "Sin local físico ni horario de atención." },
+  { label: "Canales", text: "Sin teléfono, correo ni redes sociales." },
 ];
-
-export const hasPendingChannels = contactChannels.some(
-  (channel) => channel.entries.length === 0,
-);

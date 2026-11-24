@@ -160,7 +160,7 @@ export function MobileMenu() {
             {primaryCta.label}
           </ButtonLink>
           <p className="eyebrow text-[0.6875rem] text-ink-muted">
-            Café de especialidad
+            Cada taza, un ritual
           </p>
         </div>
       </div>

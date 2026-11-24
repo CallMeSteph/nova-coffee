@@ -9,7 +9,7 @@ const pillars = [
     number: "01",
     title: "Origen",
     keyword: "Carácter",
-    text: "Cada grano llega con una historia, un lugar y un carácter propios. Nuestro trabajo empieza por descubrirlos.",
+    text: "Todo café evoca un lugar y un carácter propios. Descubrirlos es parte del placer.",
   },
   {
     number: "02",
@@ -38,7 +38,7 @@ export function Philosophy() {
         {/* Running head */}
         <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted">
           <span>
-            <span className="tabular-nums text-espresso">N.º 02</span> — Filosofía
+            <span className="text-espresso">Filosofía</span>
           </span>
           <span className="hidden sm:inline">Origen · Tueste · Preparación</span>
         </div>
@@ -67,8 +67,8 @@ export function Philosophy() {
           className="col-span-12 mt-10 sm:col-span-9 sm:col-start-4 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end lg:pb-2"
         >
           <p className="max-w-[24rem] font-display text-[1.3rem] leading-snug text-espresso md:text-[1.5rem]">
-            No se trata solamente de servir café. Se trata de elegirlo,
-            entenderlo y prepararlo respetando todo lo que lo hace especial.
+            No se trata solamente de tomar café. Se trata de detenerse,
+            apreciarlo y disfrutar todo lo que lo hace especial.
           </p>
         </Reveal>
 

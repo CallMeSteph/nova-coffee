@@ -12,7 +12,7 @@ export function ContactMessage() {
           <Reveal>
             <p className="eyebrow flex items-center gap-4 text-roast">
               <span aria-hidden="true" className="h-px w-10 bg-terracotta" />
-              Escríbenos
+              Demostración
             </p>
             <h2 id="contact-form-title" className="mt-8 text-display-lg wrap-break-word lg:mt-10">
               Unas líneas{" "}

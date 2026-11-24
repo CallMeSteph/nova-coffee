@@ -1,15 +1,19 @@
 /**
  * Single source of truth for brand data and site routes.
- * Only Home is built in phase 1; the other routes are reserved so navigation,
- * metadata and links can be wired against them without hardcoding paths.
+ * Navigation, metadata and links read from here instead of hardcoding paths.
  */
 export const siteConfig = {
   name: "NOVA COFFEE",
   shortName: "Nova",
   description:
-    "Café de especialidad tostado con cuidado. Espresso, filtrados y una pausa bien hecha.",
+    "NOVA COFFEE, proyecto conceptual de una marca ficticia: café, una mesa compartida y una pausa sin prisa.",
   locale: "es",
 } as const;
+
+/** NOVA COFFEE is a fictional brand; the footer says so on every page. */
+export const projectNotice = "Proyecto conceptual. Marca ficticia.";
+
+export const projectCredit = "Crafted by CallMeSteph";
 
 export type NavItem = {
   label: string;

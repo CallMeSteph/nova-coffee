@@ -44,12 +44,3 @@ export function validateContact(message: ContactMessage): ContactErrors {
   }
   return errors;
 }
-
-export function trimContact(message: ContactMessage): ContactMessage {
-  return {
-    name: message.name.trim(),
-    email: message.email.trim(),
-    subject: message.subject.trim(),
-    message: message.message.trim(),
-  };
-}

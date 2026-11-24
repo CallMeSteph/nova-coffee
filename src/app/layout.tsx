@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/config/site";
 import { fontVariables } from "@/lib/fonts";
@@ -6,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Café de especialidad`,
+    default: `${siteConfig.name} — Cada taza, un ritual`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

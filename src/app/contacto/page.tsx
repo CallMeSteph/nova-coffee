@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-/** Contact page — channels live in src/config/contact.ts. */
+/** Contact page — project facts live in src/config/contact.ts. */
 export default function ContactPage() {
   return (
     <main id="main" className="flex-1">

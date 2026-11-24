@@ -39,7 +39,7 @@ export function Coffee() {
         {/* Running head */}
         <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted">
           <span>
-            <span className="tabular-nums text-espresso">N.º 03</span> — El café
+            <span className="text-espresso">El café</span>
           </span>
           <span className="hidden sm:inline">Aroma · Cuerpo · Sabor</span>
         </div>

@@ -1,8 +1,6 @@
-import { useRef, useState, type FormEvent } from "react";
-import type { ContactTransport } from "@/lib/contact/transport";
+import { useState, type FormEvent } from "react";
 import {
   contactFields,
-  trimContact,
   validateContact,
   validateField,
   type ContactErrors,
@@ -13,11 +11,8 @@ import {
 export type ContactStatus =
   | "idle"
   | "invalid"
-  | "sending"
-  | "success"
-  | "error"
-  /** Valid, but there is no transport to send it with. */
-  | "unavailable";
+  /** Valid. Nothing is sent or stored: the form is a demonstration. */
+  | "demo";
 
 const emptyMessage: ContactMessage = {
   name: "",
@@ -26,14 +21,12 @@ const emptyMessage: ContactMessage = {
   message: "",
 };
 
-export function useContactForm(transport: ContactTransport | null) {
+export function useContactForm() {
   const [values, setValues] = useState(emptyMessage);
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<ContactStatus>("idle");
-  const sending = useRef(false);
 
   function change(field: ContactField, value: string) {
-    if (sending.current) return;
     setValues((current) => ({ ...current, [field]: value }));
     // A field already marked wrong is re-checked as it is being corrected.
     if (errors[field]) {
@@ -44,16 +37,15 @@ export function useContactForm(transport: ContactTransport | null) {
 
   function blur(field: ContactField) {
     // Leaving an untouched field empty is not an error until submit.
-    if (!values[field] || sending.current) return;
+    if (!values[field]) return;
     setErrors((current) => ({
       ...current,
       [field]: validateField(field, values[field]),
     }));
   }
 
-  async function submit(event: FormEvent<HTMLFormElement>) {
+  function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (sending.current) return;
 
     const form = event.currentTarget;
     const nextErrors = validateContact(values);
@@ -70,22 +62,7 @@ export function useContactForm(transport: ContactTransport | null) {
       return;
     }
 
-    if (!transport) {
-      setStatus("unavailable");
-      return;
-    }
-
-    sending.current = true;
-    setStatus("sending");
-    try {
-      await transport(trimContact(values));
-      setValues(emptyMessage);
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    } finally {
-      sending.current = false;
-    }
+    setStatus("demo");
   }
 
   return { values, errors, status, change, blur, submit };
