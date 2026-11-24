@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ------------------------------------------------------------------
+   NOVA COFFEE — design tokens
+   Warm, light-only palette. Named by role in the brand, not by hue.
+------------------------------------------------------------------- */
+@theme {
+  /* Color */
+  --color-cream: #f6f1e9; /* page background */
+  --color-linen: #efe6d8; /* subtle surfaces, alternating sections */
+  --color-sand: #ddcdb6; /* borders, dividers, quiet fills */
+  --color-roast: #6e4b36; /* tostado: secondary text, accents on light */
+  --color-espresso: #2a1d16; /* primary text, dark sections */
+  --color-crema: #c9a27e; /* crema del espresso: highlights on dark */
+  --color-terracotta: #b3603f; /* single discreet accent */
+  --color-ink-muted: #6b5d52; /* long-form secondary copy (AA on cream) */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fluid display scale for editorial headlines */
+  --text-display-xl: clamp(3.25rem, 2rem + 6vw, 8.5rem);
+  --text-display-xl--line-height: 0.95;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-lg: clamp(2.5rem, 1.6rem + 3.6vw, 5.25rem);
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.025em;
+  --text-display-md: clamp(1.875rem, 1.4rem + 1.8vw, 3.25rem);
+  --text-display-md--line-height: 1.08;
+  --text-display-md--letter-spacing: -0.02em;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.18em;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Layout */
+  --container-page: 90rem;
+  --spacing-section: clamp(5rem, 3rem + 8vw, 10rem);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-base: 400ms;
+  --duration-slow: 800ms;
+
+  --animate-fade-up: fade-up var(--duration-slow) var(--ease-out-soft) both;
+  --animate-reveal: reveal 1.4s var(--ease-in-out-soft) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Image unveils upwards, like a print being pulled from a tray. */
+  @keyframes reveal {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Font tokens reference the variables next/font sets on <html>. `inline`
+   makes utilities emit the var() directly instead of resolving it on :root. */
+@theme inline {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+:root {
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 4rem);
+  --header-height: 4.25rem;
+  color-scheme: light;
+
+  @media (width >= 64rem) {
+    --header-height: 5.25rem;
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-cream);
+    color: var(--color-espresso);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: --theme(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: --theme(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-espresso);
+    color: var(--color-cream);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+  }
+
+  html {
+    scroll-padding-top: var(--header-height);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduced motion: everything lands in its final state at once. Transitions
+     use 0s (not 0.01ms) so discrete properties like `visibility` switch in
+     the same frame, which keeps focus management working. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+}
+
+/* Scroll reveal (see components/ui/reveal.tsx). Content starts hidden only
+   when JS can reveal it and the user has not asked for reduced motion. */
+@layer components {
+  [data-reveal] {
+    transition:
+      opacity var(--duration-slow) var(--ease-out-soft),
+      translate var(--duration-slow) var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    [data-reveal]:not([data-visible]) {
+      opacity: 0;
+      translate: 0 1.25rem;
+    }
+  }
+}
+
+@utility eyebrow {
+  font-family: --theme(--font-sans);
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Fine analog film grain over photography. Decorative overlay; parent must be
+   positioned. Kept very low so it reads as texture, not noise. */
+@utility grain {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .11 0 0 0 0 .08 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
