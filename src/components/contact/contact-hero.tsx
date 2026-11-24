@@ -1,6 +1,7 @@
 import Image from "next/image";
 import twoCupsImage from "@/assets/images/contact-two-cups.jpg";
 import { Container } from "@/components/ui/container";
+import { SoftText } from "@/components/ui/soft-text";
 
 /**
  * Contact opening: the headline runs across the page and the portrait hangs
@@ -10,9 +11,9 @@ import { Container } from "@/components/ui/container";
 export function ContactHero() {
   return (
     <section aria-labelledby="contact-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-20 pt-6 lg:gap-x-10 lg:pb-32 lg:pt-8">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-20 pt-6 lg:gap-x-[40px] lg:pb-32 lg:pt-8">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted animate-fade-up">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted animate-fade-up">
           <span>
             <span className="tabular-nums text-espresso">N.º 04</span> — Contacto
           </span>
@@ -22,13 +23,13 @@ export function ContactHero() {
         {/* Headline */}
         <h1
           id="contact-title"
-          className="col-span-12 pt-12 text-display-lg sm:pt-16 lg:pt-20 lg:text-[clamp(4rem,6.6vw,6.5rem)]"
+          className="col-span-12 pt-12 text-display-lg wrap-break-word sm:pt-16 lg:pt-20 lg:text-[clamp(4rem,6.6vw,6.5rem)]"
         >
           <span className="block animate-fade-up [animation-delay:80ms]">
-            Toda buena conversación{" "}
+            <SoftText>Toda buena con&shy;ver&shy;sa&shy;ción</SoftText>{" "}
           </span>
           <em className="block text-roast animate-fade-up [animation-delay:180ms] [font-variation-settings:'SOFT'_100] sm:pl-[1.1em] lg:pl-[2.2em]">
-            comienza con un hola
+            <SoftText>comien&shy;za con un hola</SoftText>
           </em>
         </h1>
 
@@ -47,7 +48,7 @@ export function ContactHero() {
             />
           </div>
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 01</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
             <span className="font-display text-sm italic">Siempre mejor para dos.</span>
           </figcaption>
         </figure>

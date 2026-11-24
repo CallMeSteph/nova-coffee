@@ -1,6 +1,7 @@
 import Image from "next/image";
 import handsImage from "@/assets/images/about-hands.jpg";
 import { Container } from "@/components/ui/container";
+import { SoftText } from "@/components/ui/soft-text";
 
 /**
  * About opening: the home cover turned around, with the portrait on the left
@@ -10,9 +11,9 @@ import { Container } from "@/components/ui/container";
 export function AboutHero() {
   return (
     <section aria-labelledby="about-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-20 pt-6 lg:grid-rows-[auto_auto_1fr] lg:gap-x-10 lg:pb-32 lg:pt-8">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-20 pt-6 lg:grid-rows-[auto_auto_1fr] lg:gap-x-[40px] lg:pb-32 lg:pt-8">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted animate-fade-up">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted animate-fade-up">
           <span>
             <span className="tabular-nums text-espresso">N.º 03</span> — Nosotros
           </span>
@@ -22,17 +23,17 @@ export function AboutHero() {
         {/* Headline */}
         <h1
           id="about-title"
-          className="col-span-12 pt-12 text-display-lg sm:pt-16 sm:text-display-xl lg:col-span-7 lg:col-start-6 lg:row-start-2 lg:pt-14 lg:text-[clamp(4rem,6.6vw,6.5rem)]"
+          className="col-span-12 pt-12 text-display-lg wrap-break-word sm:pt-16 sm:text-display-xl lg:col-span-7 lg:col-start-6 lg:row-start-2 lg:pt-14 lg:text-[clamp(4rem,6.6vw,6.5rem)]"
         >
           <span className="block animate-fade-up [animation-delay:80ms]">
             Más que café,{" "}
           </span>
           <em className="block text-roast [font-variation-settings:'SOFT'_100] sm:pl-[0.6em]">
             <span className="block animate-fade-up [animation-delay:180ms]">
-              una forma de{" "}
+              <SoftText>una for&shy;ma de</SoftText>{" "}
             </span>
             <span className="block animate-fade-up [animation-delay:280ms]">
-              hacer una pausa
+              <SoftText>hacer una pau&shy;sa</SoftText>
             </span>
           </em>
         </h1>
@@ -52,7 +53,7 @@ export function AboutHero() {
             />
           </div>
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 01</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
             <span className="font-display text-sm italic">Calor entre las manos.</span>
           </figcaption>
         </figure>

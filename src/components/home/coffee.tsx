@@ -3,23 +3,24 @@ import pourOverImage from "@/assets/images/coffee-pour-over.jpg";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { SoftText } from "@/components/ui/soft-text";
 import { primaryCta } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /* Each note steps further right, so the three read as one descending phrase. */
 const senses = [
   {
-    title: "Aroma",
+    title: "Aro\u00ADma",
     text: "Lo primero que llega. Una invitación antes del primer sorbo.",
     indent: "",
   },
   {
-    title: "Cuerpo",
+    title: "Cuer\u00ADpo",
     text: "El peso del café en la boca: ligero, sedoso o profundo.",
     indent: "pl-[12%] md:pl-[9%] lg:pl-[12%]",
   },
   {
-    title: "Sabor",
+    title: "Sa\u00ADbor",
     text: "Lo que permanece cuando la taza ya está vacía.",
     indent: "pl-[24%] md:pl-[18%] lg:pl-[24%]",
   },
@@ -34,9 +35,9 @@ const senses = [
 export function Coffee() {
   return (
     <section aria-labelledby="coffee-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-section lg:gap-x-10">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-section lg:gap-x-[40px]">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted">
           <span>
             <span className="tabular-nums text-espresso">N.º 03</span> — El café
           </span>
@@ -45,8 +46,8 @@ export function Coffee() {
 
         {/* Headline */}
         <Reveal className="col-span-12 pt-16 sm:pt-20 lg:pt-28">
-          <h2 id="coffee-title" className="text-display-lg">
-            Todo comienza{" "}
+          <h2 id="coffee-title" className="text-display-lg wrap-break-word">
+            <SoftText>Todo co&shy;mien&shy;za</SoftText>{" "}
             <em className="block text-roast [font-variation-settings:'SOFT'_100] sm:pl-[1.1em] lg:pl-[2.2em]">
               con un buen café.
             </em>
@@ -83,7 +84,7 @@ export function Coffee() {
             </div>
           </Reveal>
           <figcaption className="mx-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mx-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 03</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 03</span>
             <span className="font-display text-sm italic">
               Agua, café y paciencia.
             </span>
@@ -96,16 +97,16 @@ export function Coffee() {
             <li key={sense.title} className={cn(sense.indent)}>
               <Reveal
                 delay={index * 120}
-                className="md:flex md:items-baseline md:gap-6 lg:gap-8"
+                className="md:flex md:flex-wrap md:items-baseline md:gap-x-[24px] lg:gap-x-[32px]"
               >
-                <h3 className="text-display-lg italic text-roast [font-variation-settings:'SOFT'_100]">
-                  {sense.title}
+                <h3 className="text-display-lg wrap-break-word italic text-roast [font-variation-settings:'SOFT'_100]">
+                  <SoftText>{sense.title}</SoftText>
                 </h3>
                 <span
                   aria-hidden="true"
                   className="hidden h-px flex-1 bg-espresso/15 md:block"
                 />
-                <p className="mt-4 max-w-[17rem] text-base leading-relaxed text-ink-muted md:mt-0 md:w-[17rem] md:max-w-none md:shrink-0">
+                <p className="mt-4 max-w-[17rem] text-base leading-relaxed text-ink-muted md:mt-0 md:w-[min(17rem,36vw)] md:max-w-none md:shrink-0">
                   {sense.text}
                 </p>
               </Reveal>
@@ -114,7 +115,7 @@ export function Coffee() {
         </ul>
 
         {/* Shares the notes' left edge from md up */}
-        <Reveal className="col-span-12 mt-14 md:ml-auto md:w-[17rem] lg:mt-20">
+        <Reveal className="col-span-12 mt-14 md:ml-auto md:w-fit md:min-w-[min(17rem,36vw)] lg:mt-20">
           <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
         </Reveal>
       </Container>

@@ -11,7 +11,8 @@ import { cn } from "@/lib/utils";
  * Mobile / tablet menu (hidden from lg up). Owns the toggle button and a
  * full-height panel below the header. Escape closes it, focus moves into the
  * panel on open and back to the toggle on close, and page scroll is locked
- * while it is open.
+ * while it is open. Everything the panel covers is inert meanwhile, so only
+ * the header (logo, toggle) and the panel itself can be reached.
  */
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,24 @@ export function MobileMenu() {
     root.style.overflow = "hidden";
     panelRef.current?.querySelector<HTMLElement>("a")?.focus();
 
+    // The header stays visible above the panel; its body siblings do not. The
+    // route announcer is left alone so navigations are still announced.
+    const header = toggleRef.current?.closest("header");
+    const covered = Array.from(document.body.children).filter(
+      (node): node is HTMLElement =>
+        node instanceof HTMLElement &&
+        node !== header &&
+        !node.inert &&
+        node.localName !== "next-route-announcer",
+    );
+    covered.forEach((node) => (node.inert = true));
+
+    // Covers the logo, and the browser's back and forward buttons.
+    const onHeaderClick = (event: MouseEvent) => {
+      if (event.target instanceof Element && event.target.closest("a")) setOpen(false);
+    };
+    const onPopState = () => setOpen(false);
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
@@ -44,10 +63,15 @@ export function MobileMenu() {
       if (event.matches) setOpen(false);
     };
 
+    header?.addEventListener("click", onHeaderClick);
+    window.addEventListener("popstate", onPopState);
     document.addEventListener("keydown", onKeyDown);
     desktop.addEventListener("change", onDesktop);
     return () => {
       root.style.overflow = previousOverflow;
+      covered.forEach((node) => (node.inert = false));
+      header?.removeEventListener("click", onHeaderClick);
+      window.removeEventListener("popstate", onPopState);
       document.removeEventListener("keydown", onKeyDown);
       desktop.removeEventListener("change", onDesktop);
     };
@@ -63,10 +87,10 @@ export function MobileMenu() {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="relative z-10 -mr-2 inline-flex h-11 items-center gap-3 px-2 text-sm font-medium"
+        className="relative z-10 -mr-[8px] inline-flex h-11 items-center gap-[clamp(8px,16px-0.25rem,12px)] pl-[max(0px,24px-1rem)] pr-[8px] text-sm font-medium"
       >
         <span>{open ? "Cerrar" : "Menú"}</span>
-        <span aria-hidden="true" className="relative block h-2.5 w-6">
+        <span aria-hidden="true" className="relative block h-[10px] w-[24px]">
           <span
             className={cn(
               "absolute left-0 top-0 h-px w-full bg-current transition-transform duration-(--duration-base) ease-(--ease-out-soft)",
@@ -118,7 +142,7 @@ export function MobileMenu() {
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-[2.5rem] leading-none tracking-[-0.02em] transition-[color,font-style] group-hover:text-roast group-aria-[current=page]:italic">
+                  <span className="font-display text-[min(2.5rem,15vw)] leading-none tracking-[-0.02em] transition-[color,font-style] group-hover:text-roast group-aria-[current=page]:italic">
                     {item.label}
                   </span>
                 </Link>
@@ -135,7 +159,7 @@ export function MobileMenu() {
           >
             {primaryCta.label}
           </ButtonLink>
-          <p className="eyebrow text-[0.65rem] text-ink-muted">
+          <p className="eyebrow text-[0.6875rem] text-ink-muted">
             Café de especialidad
           </p>
         </div>

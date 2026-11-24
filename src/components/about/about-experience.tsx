@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { SoftText } from "@/components/ui/soft-text";
 import { moments, type Moment } from "@/config/about";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +37,7 @@ function Plate({
         </div>
         <figcaption
           className={cn(
-            "eyebrow mt-4 text-[0.6rem] tabular-nums text-ink-muted",
+            "eyebrow mt-4 text-[0.6875rem] tabular-nums text-ink-muted",
             captionClassName,
           )}
         >
@@ -50,7 +51,7 @@ function Plate({
 function Note({ moment, className }: { moment: Moment; className?: string }) {
   return (
     <Reveal delay={120} className={className}>
-      <h3 className="text-display-md">{moment.title}</h3>
+      <h3 className="text-display-md wrap-break-word"><SoftText>{moment.title}</SoftText></h3>
       <p className="mt-5 max-w-[24rem] text-base leading-relaxed text-ink-muted md:text-lg md:leading-relaxed">
         {moment.text}
       </p>
@@ -65,13 +66,13 @@ function Note({ moment, className }: { moment: Moment; className?: string }) {
 export function AboutExperience() {
   return (
     <section aria-labelledby="experience-title" className="py-section">
-      <Container className="grid grid-cols-12 gap-x-6 lg:gap-x-10">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] lg:gap-x-[40px]">
         <Reveal className="col-span-12 lg:col-span-9 lg:col-start-4">
           <p className="eyebrow flex items-center gap-4 text-roast">
             <span aria-hidden="true" className="h-px w-10 bg-terracotta" />
             La experiencia NOVA
           </p>
-          <h2 id="experience-title" className="mt-8 text-display-lg lg:mt-10">
+          <h2 id="experience-title" className="mt-8 text-display-lg wrap-break-word lg:mt-10">
             Todo lo que cabe{" "}
             <em className="block text-roast [font-variation-settings:'SOFT'_100] sm:pl-[1.1em]">
               en una taza.

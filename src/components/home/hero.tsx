@@ -2,6 +2,7 @@ import Image from "next/image";
 import heroImage from "@/assets/images/hero-cup.jpg";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
+import { SoftText } from "@/components/ui/soft-text";
 import { primaryCta } from "@/config/site";
 
 /**
@@ -13,9 +14,9 @@ import { primaryCta } from "@/config/site";
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-20 pt-6 lg:gap-x-10 lg:pb-28 lg:pt-8">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-20 pt-6 lg:gap-x-[40px] lg:pb-28 lg:pt-8">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted animate-fade-up">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted animate-fade-up">
           <span>
             <span className="tabular-nums text-espresso">N.º 01</span>
             <span className="hidden sm:inline"> — La portada</span>
@@ -31,12 +32,12 @@ export function Hero() {
             Café de especialidad
           </p>
 
-          <h1 id="hero-title" className="mt-8 text-display-xl lg:mt-10">
+          <h1 id="hero-title" className="mt-8 text-display-xl wrap-break-word lg:mt-10">
             <span className="block animate-fade-up [animation-delay:160ms]">
-              Cada taza,
+              <SoftText>Cada ta&shy;za,</SoftText>
             </span>
-            <em className="block pl-[0.6em] text-roast animate-fade-up [animation-delay:260ms] [font-variation-settings:'SOFT'_100] lg:pl-[1.1em]">
-              un origen.
+            <em className="block pl-[min(0.6em,9.75vw)] text-roast animate-fade-up [animation-delay:260ms] [font-variation-settings:'SOFT'_100] lg:pl-[1.1em]">
+              <SoftText>un ori&shy;gen.</SoftText>
             </em>
           </h1>
 
@@ -60,7 +61,7 @@ export function Hero() {
         <figure className="relative col-span-12 -mr-(--gutter) ml-[12%] mt-16 sm:ml-[28%] lg:col-span-5 lg:mx-0 lg:mt-0 lg:pt-10">
           <p
             aria-hidden="true"
-            className="eyebrow absolute -left-9 top-10 hidden text-[0.6rem] text-ink-muted [writing-mode:vertical-rl] rotate-180 xl:block"
+            className="eyebrow absolute -left-[36px] top-10 hidden text-[0.6875rem] text-ink-muted [writing-mode:vertical-rl] rotate-180 xl:block"
           >
             Molido al momento · Servido sin prisa
           </p>
@@ -81,7 +82,7 @@ export function Hero() {
           </div>
 
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 01</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
             <span className="font-display text-sm italic">
               Filtrado de la mañana, luz natural.
             </span>

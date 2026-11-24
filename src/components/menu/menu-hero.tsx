@@ -1,6 +1,7 @@
 import Image from "next/image";
 import pauseImage from "@/assets/images/menu-pause.jpg";
 import { Container } from "@/components/ui/container";
+import { SoftText } from "@/components/ui/soft-text";
 import { isMenuProvisional, menu } from "@/config/menu";
 
 /**
@@ -11,9 +12,9 @@ import { isMenuProvisional, menu } from "@/config/menu";
 export function MenuHero() {
   return (
     <section aria-labelledby="menu-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-20 pt-6 lg:gap-x-10 lg:pb-28 lg:pt-8">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-20 pt-6 lg:gap-x-[40px] lg:pb-28 lg:pt-8">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted animate-fade-up">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted animate-fade-up">
           <span>
             <span className="tabular-nums text-espresso">N.º 02</span> — Nuestra
             carta
@@ -32,14 +33,13 @@ export function MenuHero() {
         {/* Headline */}
         <h1
           id="menu-title"
-          className="col-span-12 pt-12 text-display-xl sm:pt-16 lg:pt-20"
+          className="col-span-12 pt-12 text-display-xl wrap-break-word sm:pt-16 lg:pt-20"
         >
           <span className="block animate-fade-up [animation-delay:80ms]">
-            Una pausa,{" "}
+            <SoftText>Una pau&shy;sa,</SoftText>{" "}
           </span>
           <em className="block text-roast animate-fade-up [animation-delay:180ms] [font-variation-settings:'SOFT'_100] sm:pl-[1.1em] lg:pl-[2.2em]">
-            a tu manera
-          </em>
+            <SoftText>a tu ma&shy;ne&shy;ra</SoftText>          </em>
         </h1>
 
         {/* Photograph */}
@@ -57,7 +57,7 @@ export function MenuHero() {
             />
           </div>
           <figcaption className="ml-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:ml-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 01</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
             <span className="font-display text-sm italic">
               Una taza, un momento.
             </span>
@@ -95,7 +95,7 @@ export function MenuHero() {
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-base underline decoration-transparent decoration-1 underline-offset-[6px] transition-[text-decoration-color] duration-(--duration-base) ease-(--ease-out-soft) group-hover:decoration-terracotta">
+                    <span className="min-w-0 text-base wrap-break-word underline decoration-transparent decoration-1 underline-offset-[6px] transition-[text-decoration-color] duration-(--duration-base) ease-(--ease-out-soft) group-hover:decoration-terracotta">
                       {category.title}
                     </span>
                   </a>

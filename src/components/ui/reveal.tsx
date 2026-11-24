@@ -12,13 +12,14 @@ type RevealProps = {
 
 /**
  * Fades and lifts its content the first time it enters the viewport.
- * The hidden state lives in CSS (`[data-reveal]` in globals.css) and only
- * applies with scripting enabled and no reduced-motion preference, so content
- * is never stranded invisible.
+ * Content is visible by default, in the HTML and in CSS: it is only hidden
+ * once this component is running and the element is confirmed below the
+ * viewport, so a blocked or failed script never strands it invisible.
+ * The states live in CSS (`[data-reveal]` in globals.css).
  */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [state, setState] = useState<"static" | "hidden" | "visible">("static");
 
   useEffect(() => {
     const node = ref.current;
@@ -26,9 +27,12 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
+        if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
+          // Already on screen (or scrolled past): nothing to hide or animate.
+          setState((current) => (current === "hidden" ? "visible" : current));
           observer.disconnect();
+        } else {
+          setState("hidden");
         }
       },
       { rootMargin: "0px 0px -12% 0px" },
@@ -40,8 +44,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      data-reveal=""
-      data-visible={visible ? "" : undefined}
+      data-reveal={state}
       style={delay ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties) : undefined}
       className={cn(className)}
     >

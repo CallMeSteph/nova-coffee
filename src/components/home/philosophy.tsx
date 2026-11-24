@@ -2,6 +2,7 @@ import Image from "next/image";
 import portafiltersImage from "@/assets/images/philosophy-portafilters.jpg";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { SoftText } from "@/components/ui/soft-text";
 
 const pillars = [
   {
@@ -18,7 +19,7 @@ const pillars = [
   },
   {
     number: "03",
-    title: "Preparación",
+    title: "Prepa\u00ADra\u00ADción",
     keyword: "Método",
     text: "Cada método revela una manera distinta de entender el café, y también de disfrutarlo.",
   },
@@ -33,9 +34,9 @@ const pillars = [
 export function Philosophy() {
   return (
     <section aria-labelledby="philosophy-title" className="relative">
-      <Container className="grid grid-cols-12 gap-x-6 pb-section lg:gap-x-10">
+      <Container className="grid grid-cols-12 sm:gap-x-[24px] pb-section lg:gap-x-[40px]">
         {/* Running head */}
-        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.65rem] text-ink-muted">
+        <div className="eyebrow col-span-12 flex items-center justify-between gap-6 border-b border-espresso/15 pb-4 text-[0.6875rem] text-ink-muted">
           <span>
             <span className="tabular-nums text-espresso">N.º 02</span> — Filosofía
           </span>
@@ -51,10 +52,10 @@ export function Philosophy() {
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <h2 id="philosophy-title" className="mt-8 text-display-lg lg:mt-10">
-              El café merece
-              <em className="block pl-[1.1em] text-roast [font-variation-settings:'SOFT'_100]">
-                su tiempo.
+            <h2 id="philosophy-title" className="mt-8 text-display-lg wrap-break-word lg:mt-10">
+              <SoftText>El café me&shy;re&shy;ce</SoftText>
+              <em className="block pl-[min(1.1em,13.75vw)] text-roast [font-variation-settings:'SOFT'_100]">
+                <SoftText>su tiem&shy;po.</SoftText>
               </em>
             </h2>
           </Reveal>
@@ -86,7 +87,7 @@ export function Philosophy() {
             </div>
           </Reveal>
           <figcaption className="ml-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:ml-0">
-            <span className="eyebrow text-[0.6rem] tabular-nums">Fig. 02</span>
+            <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 02</span>
             <span className="font-display text-sm italic">Del grano a la taza.</span>
           </figcaption>
         </figure>
@@ -97,7 +98,7 @@ export function Philosophy() {
             <li key={pillar.number} className="border-t border-espresso/15">
               <Reveal
                 delay={index * 120}
-                className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-4 py-8 sm:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.15fr)] sm:gap-x-8 lg:grid-cols-[4rem_minmax(0,1fr)] xl:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.15fr)] sm:py-10 lg:py-12"
+                className="grid grid-cols-[44px_minmax(0,1fr)] gap-x-[16px] py-8 sm:grid-cols-[64px_minmax(0,1fr)_minmax(0,1.15fr)] sm:gap-x-[32px] lg:grid-cols-[64px_minmax(0,1fr)] xl:grid-cols-[64px_minmax(0,1fr)_minmax(0,1.15fr)] sm:py-10 lg:py-12"
               >
                 <span
                   aria-hidden="true"
@@ -106,8 +107,8 @@ export function Philosophy() {
                   {pillar.number}
                 </span>
                 <div>
-                  <h3 className="text-display-md">{pillar.title}</h3>
-                  <p className="eyebrow mt-3 text-[0.6rem] text-ink-muted">
+                  <h3 className="text-display-md wrap-break-word"><SoftText>{pillar.title}</SoftText></h3>
+                  <p className="eyebrow mt-3 text-[0.6875rem] text-ink-muted">
                     {pillar.keyword}
                   </p>
                 </div>

@@ -95,7 +95,7 @@ export function ContactForm() {
           type="submit"
           disabled={!hydrated}
           aria-disabled={sending || undefined}
-          className="group inline-flex h-13 shrink-0 cursor-pointer items-center justify-center gap-3 self-start rounded-full bg-espresso px-7 text-sm font-medium tracking-[0.01em] text-cream transition-[background-color,opacity] duration-(--duration-base) ease-(--ease-out-soft) hover:bg-roast disabled:cursor-default aria-disabled:cursor-progress aria-disabled:opacity-60 sm:self-center"
+          className="group inline-flex h-13 shrink-0 cursor-pointer items-center justify-center gap-3 self-start rounded-full bg-espresso px-[min(1.75rem,8.75vw)] text-sm font-medium tracking-[0.01em] text-cream transition-[background-color,opacity] duration-(--duration-base) ease-(--ease-out-soft) hover:bg-roast disabled:cursor-default aria-disabled:cursor-progress aria-disabled:opacity-60 sm:self-center"
         >
           {sending ? "Enviando…" : "Enviar mensaje"}
           <ArrowIcon className="transition-transform duration-(--duration-base) ease-(--ease-out-soft) group-hover:translate-x-1" />

@@ -48,7 +48,7 @@ export function FormField({
 
   return (
     <div className={className}>
-      <label htmlFor={id} className="eyebrow block text-[0.65rem] text-roast">
+      <label htmlFor={id} className="eyebrow block text-roast">
         {label}
       </label>
       {multiline ? (

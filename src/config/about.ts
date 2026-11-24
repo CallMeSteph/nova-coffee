@@ -22,7 +22,7 @@ export const concepts: Concept[] = [
     text: "El café no se apura. Pide unos minutos y, a cambio, devuelve un poco de calma.",
   },
   {
-    title: "La experiencia",
+    title: "La expe\u00ADrien\u00ADcia",
     text: "El sabor es solo una parte. También cuentan la luz, la compañía y el silencio.",
   },
 ];
@@ -53,7 +53,7 @@ export const moments: Record<MomentId, Moment> = {
     figure: "Fig. 03",
   },
   gathering: {
-    title: "Un punto de encuentro",
+    title: "Un punto de encuen\u00ADtro",
     text: "A veces el café es solo la excusa. Lo importante ocurre alrededor.",
     image: gatheringImage,
     alt: "Tres manos acercan sus tazas de café en un brindis, vistas desde arriba.",

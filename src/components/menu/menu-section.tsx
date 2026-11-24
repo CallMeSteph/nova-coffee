@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { SoftText } from "@/components/ui/soft-text";
 import type { MenuCategory } from "@/config/menu";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +27,7 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
       aria-labelledby={titleId}
       className={cn("py-section", mirrored && "bg-linen")}
     >
-      <Container className="grid grid-cols-12 items-start gap-x-6 lg:gap-x-10">
+      <Container className="grid grid-cols-12 items-start sm:gap-x-[24px] lg:gap-x-[40px]">
         {/* Category heading */}
         <div
           className={cn(
@@ -35,16 +36,16 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
           )}
         >
           <Reveal>
-            <p className="eyebrow flex items-center gap-4 text-[0.65rem] tabular-nums text-roast">
+            <p className="eyebrow flex items-center gap-4 text-[0.6875rem] tabular-nums text-roast">
               <span aria-hidden="true" className="h-px w-10 bg-terracotta" />
               {pad(index + 1)} / {pad(total)}
             </p>
             {/* Phone and desktop sizes track the column so "Acompañamientos" fits. */}
             <h2
               id={titleId}
-              className="mt-8 text-display-lg max-sm:text-[min(10.2vw,3rem)] lg:text-[clamp(2.25rem,3.6vw,3.5rem)]"
+              className="mt-8 text-display-lg wrap-break-word max-sm:text-[min(10.2vw,3rem)] lg:text-[clamp(2.25rem,3.6vw,3.5rem)]"
             >
-              {category.title}
+              <SoftText>{category.title}</SoftText>
             </h2>
             <p className="mt-5 max-w-[19rem] font-display text-lg italic leading-snug text-ink-muted">
               {category.description}
@@ -62,7 +63,7 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
           {category.items.map((item, itemIndex) => (
             <li key={item.name} className="border-t border-espresso/15">
               <Reveal delay={itemIndex * 80} className="py-7 lg:py-9">
-                <div className="flex items-baseline justify-between gap-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                   <h3
                     className={cn(
                       "text-2xl leading-tight tracking-[-0.01em] md:text-[1.75rem]",
@@ -72,7 +73,7 @@ export function MenuSection({ category, index, total }: MenuSectionProps) {
                     {item.name}
                   </h3>
                   {item.provisional ? (
-                    <span className="eyebrow shrink-0 text-[0.6rem] text-roast">
+                    <span className="eyebrow shrink-0 text-[0.6875rem] text-roast">
                       Provisional
                     </span>
                   ) : (

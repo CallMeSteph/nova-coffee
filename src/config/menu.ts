@@ -51,7 +51,8 @@ export const menu: MenuCategory[] = [
   },
   {
     id: "acompanamientos",
-    title: "Acompañamientos",
+    // Soft hyphen: only breaks, with a hyphen, when the word does not fit.
+    title: "Acompaña\u00ADmientos",
     description: "Algo para la mesa, mientras dura la conversación.",
     items: placeholderItems(3),
   },

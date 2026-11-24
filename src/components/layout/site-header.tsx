@@ -16,7 +16,7 @@ export function SiteHeader() {
         aria-hidden="true"
         className="absolute inset-0 -z-10 border-b border-espresso/10 bg-cream/85 backdrop-blur-md"
       />
-      <div className="mx-auto grid h-full w-full max-w-(--container-page) grid-cols-[1fr_auto] items-center px-(--gutter) lg:grid-cols-[1fr_auto_1fr]">
+      <div className="mx-auto grid h-full w-full max-w-(--container-page) grid-cols-[1fr_auto] items-center px-[min(var(--gutter),6.4vw)] lg:grid-cols-[1fr_auto_1fr]">
         <Logo className="justify-self-start" />
 
         <nav aria-label="Principal" className="hidden lg:block">
@@ -27,7 +27,7 @@ export function SiteHeader() {
           <ButtonLink
             href={primaryCta.href}
             variant="outline"
-            className="hidden lg:inline-flex"
+            className="hidden whitespace-nowrap lg:inline-flex"
           >
             {primaryCta.label}
           </ButtonLink>

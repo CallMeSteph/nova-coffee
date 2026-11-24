@@ -7,12 +7,14 @@ import { mainNav } from "@/config/site";
 /**
  * Desktop navigation. Client only to read the pathname for aria-current;
  * every route is static, so this resolves during prerender (no Suspense needed).
+ * With enlarged text (viewport under 44rem) the max-width sets the links in two
+ * rows of two; otherwise it exceeds the list and has no effect.
  */
 export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex items-center gap-9">
+    <ul className="flex max-w-[max(13.5rem,(100vw-44rem)*99)] flex-wrap items-center justify-center gap-x-[min(2.25rem,3.6vw)]">
       {mainNav.map((item, index) => {
         const isActive = pathname === item.href;
         return (
@@ -20,11 +22,11 @@ export function NavLinks() {
             <Link
               href={item.href}
               aria-current={isActive ? "page" : undefined}
-              className="group relative inline-flex items-start gap-1.5 py-2 text-sm text-espresso/75 transition-colors duration-(--duration-base) hover:text-espresso aria-[current=page]:text-espresso"
+              className="group relative inline-flex items-start gap-1.5 whitespace-nowrap py-2 text-sm text-espresso/75 transition-colors duration-(--duration-base) hover:text-espresso aria-[current=page]:text-espresso"
             >
               <span
                 aria-hidden="true"
-                className="pt-px text-[0.6rem] tabular-nums tracking-wider text-roast"
+                className="pt-px text-[0.6875rem] tabular-nums tracking-wider text-roast"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
