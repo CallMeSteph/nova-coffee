@@ -37,11 +37,14 @@ function Plate({
         </div>
         <figcaption
           className={cn(
-            "eyebrow mt-4 text-[0.6875rem] tabular-nums text-ink-muted",
+            "mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted",
             captionClassName,
           )}
         >
-          {moment.figure}
+          <span className="eyebrow shrink-0 text-[0.6875rem] tabular-nums">
+            {moment.figure}
+          </span>
+          <span className="font-display text-sm italic">{moment.caption}</span>
         </figcaption>
       </figure>
     </Reveal>
@@ -113,7 +116,7 @@ export function AboutExperience() {
           sizes="(min-width: 90rem) 62rem, (min-width: 64rem) 70vw, 100vw"
           className="col-span-12 -mx-(--gutter) mt-24 lg:order-3 lg:col-span-8 lg:mx-0 lg:mt-32"
           frameClassName="aspect-[4/3] sm:aspect-[3/2]"
-          captionClassName="pl-(--gutter) lg:pl-0"
+          captionClassName="px-(--gutter) lg:px-0"
           imageClassName="saturate-[.82] sepia-[.2]"
         />
         <Note

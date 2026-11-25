@@ -33,6 +33,7 @@ export type Moment = {
   image: StaticImageData;
   alt: string;
   figure: string;
+  caption: string;
 };
 
 type MomentId = "pause" | "detail" | "gathering";
@@ -44,6 +45,7 @@ export const moments: Record<MomentId, Moment> = {
     image: tableImage,
     alt: "Taza de café con leche y arte latte sobre una mesa de madera, con luz cálida de fondo.",
     figure: "Fig. 02",
+    caption: "Un hueco en la tarde.",
   },
   detail: {
     title: "El placer de lo pequeño",
@@ -51,6 +53,7 @@ export const moments: Record<MomentId, Moment> = {
     image: shadowImage,
     alt: "Taza de vidrio con café solo que proyecta una sombra larga sobre una superficie clara.",
     figure: "Fig. 03",
+    caption: "La luz a través del vidrio.",
   },
   gathering: {
     title: "Un punto de encuen\u00ADtro",
@@ -58,5 +61,6 @@ export const moments: Record<MomentId, Moment> = {
     image: gatheringImage,
     alt: "Tres manos acercan sus tazas de café en un brindis, vistas desde arriba.",
     figure: "Fig. 04",
+    caption: "Tres tazas, un brindis.",
   },
 };

@@ -54,7 +54,7 @@ export function AboutHero() {
           </div>
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
             <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 01</span>
-            <span className="font-display text-sm italic">Calor entre las manos.</span>
+            <span className="font-display text-sm italic">Un momento entre las manos.</span>
           </figcaption>
         </figure>
 

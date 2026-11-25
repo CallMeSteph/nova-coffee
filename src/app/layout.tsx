@@ -11,6 +11,13 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  // Pages inherit this along with opengraph-image.png, and Next fills in their
+  // own title and description. A page that sets `openGraph` replaces it all.
+  openGraph: {
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {
