@@ -49,7 +49,7 @@ export const moments: Record<MomentId, Moment> = {
   },
   detail: {
     title: "El placer de lo pequeño",
-    text: "Una sombra sobre la mesa, el primer sorbo, el calor en las manos.",
+    text: "Una sombra sobre la mesa, el primer sorbo, el tintineo del hielo.",
     image: shadowImage,
     alt: "Vaso de vidrio con café con leche y hielo sobre un posavasos de corcho, entre sombras de hojas.",
     figure: "Fig. 03",

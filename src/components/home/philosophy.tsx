@@ -88,7 +88,7 @@ export function Philosophy() {
           </Reveal>
           <figcaption className="ml-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:ml-0">
             <span className="eyebrow text-[0.6875rem] tabular-nums">Fig. 02</span>
-            <span className="font-display text-sm italic">Del grano a la taza.</span>
+            <span className="font-display text-sm italic">El grano, antes y después.</span>
           </figcaption>
         </figure>
 
