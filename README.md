@@ -159,16 +159,12 @@ conectado. La interfaz lo indica antes y después de probarlo.
 ### SEO e indexación
 
 - Título y descripción propios en cada página, con Open Graph y Twitter Cards.
-- **Indexación desactivada temporalmente:** las páginas principales incluyen
-  `noindex, follow`, configurado en `src/app/layout.tsx`. La página 404 utiliza
-  su propia instrucción `noindex`.
-- `robots.txt` permite el rastreo para que los buscadores puedan leer esa
-  instrucción.
-- Todavía no hay sitemap, direcciones canónicas ni dominio. Sin él, la URL de la
-  imagen Open Graph apunta al entorno local.
-
-El `noindex` depende de que cada buscador lo respete y no restringe el acceso al
-sitio.
+- URL de producción: <https://nova-coffee-theta.vercel.app/>, definida en
+  `src/config/site.ts` y usada en `metadataBase`, sitemap y robots.
+- Dirección canónica propia en cada página pública, que es indexable
+  (`index, follow`). La página 404 conserva su `noindex`.
+- `robots.txt` permite el rastreo y declara `sitemap.xml`, que contiene las cuatro
+  páginas públicas.
 
 ### Cabeceras de seguridad
 
@@ -188,10 +184,10 @@ en el HTML**. HSTS no está activado.
 
 ## Pendiente antes de publicar
 
-- [ ] Elegir el dominio y la plataforma de despliegue.
-- [ ] Configurar `metadataBase`, las direcciones canónicas y la URL de Open Graph.
-- [ ] Crear el sitemap y añadirlo a `robots.txt`.
-- [ ] Decidir si se retira el `noindex` temporal.
+- [x] Elegir el dominio y la plataforma de despliegue.
+- [x] Configurar `metadataBase`, las direcciones canónicas y la URL de Open Graph.
+- [x] Crear el sitemap y añadirlo a `robots.txt`.
+- [x] Retirar el `noindex` temporal.
 - [ ] Valorar HSTS cuando exista HTTPS en producción.
 - [ ] Comprobar las cabeceras en la plataforma de despliegue.
 - [ ] Revisar el sitio en navegadores y dispositivos reales.

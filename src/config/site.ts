@@ -5,6 +5,8 @@
 export const siteConfig = {
   name: "NOVA COFFEE",
   shortName: "Nova",
+  /** Production origin, for absolute URLs in metadata, sitemap and robots. */
+  url: "https://nova-coffee-theta.vercel.app/",
   description:
     "NOVA COFFEE, proyecto conceptual de una marca ficticia: café, una mesa compartida y una pausa sin prisa.",
   /** Language of the document. */

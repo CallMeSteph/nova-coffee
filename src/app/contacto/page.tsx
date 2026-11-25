@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Información sobre NOVA COFFEE, proyecto conceptual de una cafetería ficticia, y un formulario de demostración que no envía ni almacena mensajes.",
+  alternates: { canonical: "/contacto" },
 };
 
 /** Contact page — project facts live in src/config/contact.ts. */

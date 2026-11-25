@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/button-link";
 import { StatusMessage } from "@/components/ui/status-message";
-import { primaryCta } from "@/config/site";
+import { primaryCta, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     "La página que buscas no existe o ha cambiado de lugar. Vuelve al inicio de NOVA COFFEE o consulta la carta.",
   // Next already adds `noindex` to 404s; inheriting it would duplicate the tag.
   robots: null,
+  // Without the inherited `url`, which would expose the internal /_not-found.
+  openGraph: {
+    siteName: siteConfig.name,
+    locale: siteConfig.ogLocale,
+    type: "website",
+    images: { url: "/opengraph-image.png", width: 1200, height: 630 },
+  },
 };
 
 /** 404 page. Rendered inside the root layout, so it keeps header and footer. */

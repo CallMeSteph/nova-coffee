@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Nosotros",
   description:
     "La idea detrás de NOVA COFFEE, una cafetería ficticia: el origen, el tiempo y la experiencia de hacer una pausa. Proyecto conceptual.",
+  alternates: { canonical: "/nosotros" },
 };
 
 /** About page — copy lives in src/config/about.ts. */

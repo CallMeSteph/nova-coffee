@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Carta",
   description:
     "La carta de NOVA COFFEE: cafés clásicos, cafés fríos, panadería y postres. Productos y precios ficticios de un proyecto conceptual.",
+  alternates: { canonical: "/carta" },
 };
 
 /** Menu page — content lives in src/config/menu.ts. */

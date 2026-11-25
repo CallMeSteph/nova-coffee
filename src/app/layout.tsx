@@ -6,19 +6,21 @@ import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} — Cada taza, un ritual`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  // Temporary: keeps every page out of search results until launch.
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
   // Pages inherit this along with opengraph-image.png, and Next fills in their
   // own title and description. A page that sets `openGraph` replaces it all.
   openGraph: {
+    // Relative to the current route, so each page gets its own absolute URL.
+    url: "./",
     siteName: siteConfig.name,
     locale: siteConfig.ogLocale,
     type: "website",
