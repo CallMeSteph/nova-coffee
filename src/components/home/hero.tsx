@@ -34,7 +34,7 @@ export function Hero() {
 
           <h1 id="hero-title" className="mt-8 text-display-xl wrap-break-word lg:mt-10">
             <span className="block animate-fade-up [animation-delay:160ms]">
-              <SoftText>Cada ta&shy;za,</SoftText>
+              <SoftText>Cada ta&shy;za,</SoftText>{" "}
             </span>
             <em className="block pl-[min(0.6em,9.75vw)] text-roast animate-fade-up [animation-delay:260ms] [font-variation-settings:'SOFT'_100] lg:pl-[1.1em]">
               <SoftText>un ri&shy;tual.</SoftText>

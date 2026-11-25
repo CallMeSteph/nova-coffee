@@ -7,7 +7,7 @@ import { ContactMessage } from "@/components/contact/contact-message";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Conoce NOVA COFFEE, un proyecto conceptual que explora el diseño editorial y la identidad visual de una cafetería ficticia.",
+    "Información sobre NOVA COFFEE, proyecto conceptual de una cafetería ficticia, y un formulario de demostración que no envía ni almacena mensajes.",
 };
 
 /** Contact page — project facts live in src/config/contact.ts. */

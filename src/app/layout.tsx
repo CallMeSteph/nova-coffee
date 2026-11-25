@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   // own title and description. A page that sets `openGraph` replaces it all.
   openGraph: {
     siteName: siteConfig.name,
-    locale: siteConfig.locale,
+    locale: siteConfig.ogLocale,
     type: "website",
   },
 };

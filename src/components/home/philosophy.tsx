@@ -53,7 +53,7 @@ export function Philosophy() {
           </Reveal>
           <Reveal delay={100}>
             <h2 id="philosophy-title" className="mt-8 text-display-lg wrap-break-word lg:mt-10">
-              <SoftText>El café me&shy;re&shy;ce</SoftText>
+              <SoftText>El café me&shy;re&shy;ce</SoftText>{" "}
               <em className="block pl-[min(1.1em,13.75vw)] text-roast [font-variation-settings:'SOFT'_100]">
                 <SoftText>su tiem&shy;po.</SoftText>
               </em>
