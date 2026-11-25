@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Página no encontrada",
   description:
     "La página que buscas no existe o ha cambiado de lugar. Vuelve al inicio de NOVA COFFEE o consulta la carta.",
+  // Next already adds `noindex` to 404s; inheriting it would duplicate the tag.
+  robots: null,
 };
 
 /** 404 page. Rendered inside the root layout, so it keeps header and footer. */

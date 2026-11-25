@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  // Temporary: keeps every page out of search results until launch.
+  robots: {
+    index: false,
+    follow: true,
+  },
   // Pages inherit this along with opengraph-image.png, and Next fills in their
   // own title and description. A page that sets `openGraph` replaces it all.
   openGraph: {
