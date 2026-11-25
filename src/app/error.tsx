@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { ButtonLink } from "@/components/ui/button-link";
+import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { StatusMessage } from "@/components/ui/status-message";
 
 type ErrorPageProps = {
@@ -30,9 +30,17 @@ export default function ErrorPage({ error, retry }: ErrorPageProps) {
       >
         Intentar de nuevo
       </button>
-      <ButtonLink href="/" variant="text">
+      {/* A full page load, on purpose: Next only clears the error when the path
+          changes, so a client link would do nothing if the home page failed.
+          Same look as <ButtonLink variant="text">. */}
+      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+      <a
+        href="/"
+        className="group inline-flex items-center justify-center gap-[12px] text-sm font-medium tracking-[0.01em] transition-[color,background-color,border-color,text-decoration-color] duration-(--duration-base) ease-(--ease-out-soft) min-h-13 px-0 py-2 text-espresso underline decoration-espresso/30 decoration-1 underline-offset-[6px] hover:decoration-terracotta"
+      >
         Volver al inicio
-      </ButtonLink>
+        <ArrowIcon className="transition-transform duration-(--duration-base) ease-(--ease-out-soft) group-hover:translate-x-1" />
+      </a>
     </StatusMessage>
   );
 }

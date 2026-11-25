@@ -50,7 +50,15 @@ const styles = `
     cursor: pointer;
   }
   button:hover { background: #6e4b36; }
-  a { color: inherit; font-size: 0.875rem; text-underline-offset: 6px; }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    color: inherit;
+    font-size: 0.875rem;
+    text-underline-offset: 6px;
+  }
   :focus-visible { outline: 2px solid #b3603f; outline-offset: 3px; }
   footer {
     display: flex;
@@ -81,14 +89,16 @@ export default function GlobalError({ error, retry }: GlobalErrorProps) {
       <body>
         <header>{siteConfig.name}</header>
         <main>
-          <h1>
-            Algo se ha <em>enfriado</em>
-          </h1>
-          <div className="rule" aria-hidden="true" />
-          <p className="text">
-            No hemos podido mostrar el sitio. Inténtalo de nuevo o vuelve al
-            inicio.
-          </p>
+          <div role="alert">
+            <h1>
+              Algo se ha <em>enfriado</em>
+            </h1>
+            <div className="rule" aria-hidden="true" />
+            <p className="text">
+              No hemos podido mostrar el sitio. Inténtalo de nuevo o vuelve al
+              inicio.
+            </p>
+          </div>
           <div className="actions">
             <button type="button" onClick={() => retry()}>
               Intentar de nuevo
