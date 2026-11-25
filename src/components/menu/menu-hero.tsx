@@ -39,13 +39,13 @@ export function MenuHero() {
           <div className="grain relative aspect-[4/5] overflow-hidden bg-linen animate-reveal [animation-delay:200ms] sm:aspect-[3/2]">
             <Image
               src={pauseImage}
-              alt="Taza de café vista desde arriba sobre un fondo color crema, con una sombra larga de luz natural."
+              alt="Taza de café con arte latte vista desde arriba, sobre una superficie clara con sombras de hojas."
               fill
               placeholder="blur"
               loading="eager"
               fetchPriority="high"
               sizes="(min-width: 90rem) 55rem, (min-width: 64rem) 62vw, (min-width: 40rem) 92vw, 170vw"
-              className="object-cover saturate-[.82] sepia-[.1] contrast-[1.03]"
+              className="object-cover saturate-[.9]"
             />
           </div>
           <figcaption className="ml-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:ml-0">

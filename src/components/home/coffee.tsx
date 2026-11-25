@@ -75,11 +75,11 @@ export function Coffee() {
             <div className="grain relative aspect-[4/5] overflow-hidden bg-linen sm:aspect-[3/2]">
               <Image
                 src={pourOverImage}
-                alt="Agua vertida desde una tetera de cobre sobre un filtro de café, con vapor y una jarra de vidrio debajo."
+                alt="Agua vertida desde una tetera de cobre sobre un filtro de café, con una jarra de vidrio debajo, en una mesa de madera."
                 fill
                 placeholder="blur"
                 sizes="(min-width: 90rem) 55rem, (min-width: 64rem) 62vw, (min-width: 40rem) 100vw, 190vw"
-                className="object-cover object-[62%_50%] saturate-[.9] sepia-[.28] contrast-[1.03]"
+                className="object-cover object-[62%_50%] saturate-[.9]"
               />
             </div>
           </Reveal>

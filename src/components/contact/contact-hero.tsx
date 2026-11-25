@@ -38,13 +38,13 @@ export function ContactHero() {
           <div className="grain relative aspect-[4/5] overflow-hidden bg-linen animate-reveal [animation-delay:200ms]">
             <Image
               src={twoCupsImage}
-              alt="Dos tazas de café con arte latte, una junto a otra sobre una mesa de madera rodeada de hojas, vistas desde arriba."
+              alt="Dos tazas de café con arte latte, una junto a otra sobre una mesa de madera, con una planta al fondo."
               fill
               placeholder="blur"
               loading="eager"
               fetchPriority="high"
-              sizes="(min-width: 90rem) 34rem, (min-width: 64rem) 40vw, (min-width: 40rem) 66vw, 84vw"
-              className="object-cover brightness-110 saturate-[.6] sepia-[.5]"
+              sizes="(min-width: 90rem) 64rem, (min-width: 64rem) 75vw, (min-width: 40rem) 124vw, 158vw"
+              className="object-cover object-[47%_50%] saturate-[.9]"
             />
           </div>
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">

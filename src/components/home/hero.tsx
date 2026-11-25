@@ -71,13 +71,13 @@ export function Hero() {
           <div className="grain relative aspect-[4/5] overflow-hidden bg-linen animate-reveal [animation-delay:200ms] lg:aspect-auto lg:h-[clamp(28rem,calc(100svh-var(--header-height)-11rem),46rem)]">
             <Image
               src={heroImage}
-              alt="Taza de café recién servido vista desde arriba, con crema dorada, sobre una mesa de madera clara."
+              alt="Taza de cerámica moteada con espresso y crema dorada, sobre una mesa de madera oscura con luz natural."
               fill
               placeholder="blur"
               loading="eager"
               fetchPriority="high"
-              sizes="(min-width: 64rem) 40vw, (min-width: 40rem) 72vw, 88vw"
-              className="scale-[1.02] object-cover saturate-[.88] sepia-[.08] contrast-[1.03]"
+              sizes="(min-width: 64rem) 69rem, (min-width: 40rem) 135vw, 165vw"
+              className="object-cover object-[54%_50%] saturate-[.9]"
             />
           </div>
 

@@ -32,7 +32,7 @@ function Plate({
             fill
             placeholder="blur"
             sizes={sizes}
-            className={cn("object-cover contrast-[1.03]", imageClassName)}
+            className={cn("object-cover saturate-[.9]", imageClassName)}
           />
         </div>
         <figcaption
@@ -86,11 +86,11 @@ export function AboutExperience() {
         {/* Portrait, note at its foot */}
         <Plate
           moment={moments.pause}
-          sizes="(min-width: 90rem) 36rem, (min-width: 64rem) 40vw, (min-width: 40rem) 60vw, 84vw"
+          sizes="(min-width: 90rem) 68rem, (min-width: 64rem) 75vw, (min-width: 40rem) 113vw, 158vw"
           className="col-span-12 -ml-(--gutter) mr-[16%] mt-16 sm:mr-[40%] lg:col-span-5 lg:mx-0 lg:mt-28"
           frameClassName="aspect-[4/5]"
           captionClassName="pl-(--gutter) lg:pl-0"
-          imageClassName="object-[50%_80%] saturate-[.82] sepia-[.2]"
+          imageClassName="object-[47%_50%]"
         />
         <Note
           moment={moments.pause}
@@ -100,10 +100,10 @@ export function AboutExperience() {
         {/* Small square pushed right, note to its left */}
         <Plate
           moment={moments.detail}
-          sizes="(min-width: 90rem) 28rem, (min-width: 64rem) 32vw, (min-width: 40rem) 50vw, 68vw"
+          sizes="(min-width: 90rem) 42rem, (min-width: 64rem) 48vw, (min-width: 40rem) 75vw, 102vw"
           className="col-span-12 ml-[32%] mt-24 sm:ml-[50%] lg:order-2 lg:col-span-4 lg:col-start-9 lg:ml-0 lg:mt-32"
           frameClassName="aspect-square"
-          imageClassName="saturate-[.85] sepia-[.28]"
+          imageClassName="object-[64%_50%]"
         />
         <Note
           moment={moments.detail}
@@ -113,11 +113,10 @@ export function AboutExperience() {
         {/* Wide landscape, note beside its foot */}
         <Plate
           moment={moments.gathering}
-          sizes="(min-width: 90rem) 62rem, (min-width: 64rem) 70vw, 100vw"
+          sizes="(min-width: 90rem) 62rem, (min-width: 64rem) 70vw, (min-width: 40rem) 100vw, 113vw"
           className="col-span-12 -mx-(--gutter) mt-24 lg:order-3 lg:col-span-8 lg:mx-0 lg:mt-32"
           frameClassName="aspect-[4/3] sm:aspect-[3/2]"
           captionClassName="px-(--gutter) lg:px-0"
-          imageClassName="saturate-[.82] sepia-[.2]"
         />
         <Note
           moment={moments.gathering}

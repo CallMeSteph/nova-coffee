@@ -78,11 +78,11 @@ export function Philosophy() {
             <div className="grain relative aspect-[4/5] overflow-hidden bg-linen">
               <Image
                 src={portafiltersImage}
-                alt="Tres portafiltros sobre acero: uno con granos de café tostado, otro con café molido y otro con un capuchino servido."
+                alt="Dos portafiltros con mango de madera sobre una mesa oscura: uno con granos de café tostado y otro con café molido."
                 fill
                 placeholder="blur"
-                sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 58vw, 82vw"
-                className="object-cover saturate-[.82] sepia-[.3] contrast-[1.03]"
+                sizes="(min-width: 64rem) 57vw, (min-width: 40rem) 109vw, 154vw"
+                className="object-cover object-[20%_50%] saturate-[.9]"
               />
             </div>
           </Reveal>

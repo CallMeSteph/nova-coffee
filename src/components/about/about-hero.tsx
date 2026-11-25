@@ -49,7 +49,7 @@ export function AboutHero() {
               loading="eager"
               fetchPriority="high"
               sizes="(min-width: 90rem) 62rem, (min-width: 64rem) 70vw, (min-width: 40rem) 135vw, 165vw"
-              className="object-cover object-[46%_50%] saturate-[.82] sepia-[.28] contrast-[1.03]"
+              className="object-cover object-[58%_50%] saturate-[.9]"
             />
           </div>
           <figcaption className="mr-(--gutter) mt-4 flex items-baseline justify-between gap-6 text-xs text-ink-muted lg:mr-0">
